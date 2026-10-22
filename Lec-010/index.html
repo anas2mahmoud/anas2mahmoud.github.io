@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Yellow main container */
+    .container {
+      background-color: #1c38d6;
+      border: 2px solid #5e19d4;
+      padding: 20px; /* 20px inner padding */
+      width: 300px;
+      
+      /* Layout aligning elements to the right and bottom */
+      display: flex;
+      flex-direction: column-reverse; /* 1 at the bottom, 5 at the top */
+      align-items: flex-end; /* Right-aligned */
+      gap: 5px; /* Space between the boxes */
+    }
+
+    /* Small square boxes (40x40 px) */
+    .box {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #ff5722;
+      background-color: #1ba7ce;
+      
+      /* Center the number inside */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      color: #da1919;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+
+</body>
+</html>
