@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"  deta-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+      .h1{
+        background-color: blue ;
+      }
+    </style>
+</head>
+<body>
+    <div class="p-4">
+        <div class="rounded-full  border w-20 p-1 bg-gray-200 flex justify-between items-center">
+            <span class="rounded-full w-8 h-8 flex items-center justify-center">
+                <i class="fa fa-sun"></i>
+            </span>
+            <span class="bg-gray-600 text-yellow-400 rounded-full w-8 h-8 flex items-center justify-center">
+                <i class="fa fa-moon"></i>
+            </span>
+
+
+        </div>
+        
+    </div>
+
+    <header class="bg-sky-200 dark:bg-sky-900 h-screen text-4xl flex justify-center items-center text-titles">
+        <h1>My Portfolio</h1>
+    </header>
+</body>
+</html>

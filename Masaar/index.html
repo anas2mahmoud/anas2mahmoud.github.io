@@ -1,72 +1,707 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" dark>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مسار</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+<style>
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        direction: ltr;
+
+    }
+    .navbar a{
+        margin: 0 15px;
+        text-decoration: none;
+        color:#333;
+    }
+    .header-button a{
+        background-color: #6366F1;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+    }
+    
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    direction: rtl;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 32px;
+    color: #4F46E5; 
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #6B7280;
+    font-size: 16px;
+    margin: 0;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    direction: rtl;
+    gap: 40px;
+}
+
+
+.hero-image-card {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.card-illustration {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.rating-badge {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    background: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.courses-badge {
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.courses-section {
+    padding: 60px 40px;
+    direction: rtl;
+    background-color: #FAFAFA;
+}
+
+.courses-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.courses-tag {
+    background-color: #EEF2FF;
+    color: #4F46E5;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.courses-header h2 {
+    font-size: 36px;
+    color: #111827;
+    margin: 15px 0 10px 0;
+}
+
+.courses-header p {
+    color: #6B7280;
+    font-size: 16px;
+}
+
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.course-card {
+    background: lightblue;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.course-icon {
+    font-size: 28px;
+    background: #F3F4F6;
+    padding: 12px;
+    border-radius: 16px;
+}
+
+.course-card h3 {
+    font-size: 22px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    color: #6B7280;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #F3F4F6;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.price {
+    color: #4F46E5;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.duration {
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+
+.btn-details {
+    display: block;
+    text-align: center;
+    background: transparent;
+    border: 1px solid #E5E7EB;
+    color: #111827;
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-details:hover {
+    background-color: #4F46E5;
+    color: white;
+    border-color: #4F46E5;
+}
+/* --- "Warum Masar?" Sektion --- */
+.why-us-section {
+    padding: 60px 40px;
+    direction: rtl;
+    background-color: #FFFFFF;
+}
+
+.why-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.why-tag {
+    background-color: #EEF2FF;
+    color: #4F46E5;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.why-header h2 {
+    font-size: 36px;
+    color: #111827;
+    margin: 15px 0 10px 0;
+}
+
+.why-header p {
+    color: #6B7280;
+    font-size: 16px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-card {
+    background: lightcyan;
+    border: 1px solid #F3F4F6;
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+}
+
+.why-icon {
+    font-size: 32px;
+    background: #F3F4F6;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0 auto 20px auto;
+}
+
+.why-card h3 {
+    font-size: 22px;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #6B7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* --- Der violette Banner unten --- */
+.cta-banner {
+    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+    margin: 40px;
+    border-radius: 30px;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+    direction: rtl;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.cta-banner p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-white {
+    background: white;
+    color: #4F46E5;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-outline:hover {
+    border-color: white;
+}
+/* --- Der Footer (Fußzeile) --- */
+footer {
+    background-color: #0F172A; /* Ein sehr dunkles Blau/Schwarz wie im Original */
+    color: #94A3B8;            /* Helles Grau für den Text */
+    padding: 60px 40px 20px 40px;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1E293B; /* Trennlinie oben am Copyright */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Überschriften im Footer */
+.footer-section h3 {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Beschreibungstext beim Logo */
+.footer-section p {
+    color: #94A3B8;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* Links in den Footer-Spalten */
+.footer-section a {
+    display: block;
+    color: #94A3B8;
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+    color: #FFFFFF;
+}
+
+/* Unterster Bereich (Copyright) */
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    color: #64748B;
+    font-size: 14px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+</style>
 </head>
+
+
+
+
 <body>
-    <header>
-        <nav>
-            <a herf="a">سجل الأن</a>
-            <a herf="b">الرئيسيه</a>
-            <a herf="c">الكورسات</a>
-            <a herf="d">ليه مسار</a>
-            <a herf="e">تواصل</a>
-            <a herf="f"> تصفح الكورسات</a>
-            <a herf="g">اعرف اكتر</a>
-        </nav>
+    <header class="header">
+        <div class="logo">
+            <h2>مسار</h2>
+        </div>
+
+        <nav class="navbar">
+        <a href="#">الرئيسية</a>
+        <a href="#">الكورسات</a>
+        <a href="#">ليه مسار</a>
+        <a href="#">تواصل</a>
+    </nav>
+
+    <div class="header-button">
+        <a href="#">سجل الآن</a>
+    </div>
+
     </header>
 
+
     <main>
-        <h1>مسار التعلم بيبدأ هنا</h1>
+        <section class="hero">
+            <div class="hero-image-card">
+    
+    <div class="rating-badge">⭐ 4.9 تقييم</div>
+    
+    
+    <div class="card-illustration">
+        <img src="dein-bild.png" alt="Education Icon">
+    </div>
 
-        <Section>
-            <span>الكورسات</span>
-            <h2>اختار الكورس اللى يناسبك</h2>
-            <p>كورسات عالمية 100%، بمشاريع حقيقية وشهادة معتمدة في نهاية كل كورس</p>
+    
+    <div class="courses-badge">
+        🎯 24 كورس
+    </div>
+</div>
+            <div class="hero-content">
 
-            
-            <article>
-                <h3>تطوير الويب</h3>
-                <p>اتعلّم HTML وCSS وJavaScript، وابني مواقع كاملة من الصفر</p>
+                <h1>مسار التعلم بيبدأ هنا</h1>
+                <p>مركز مسار بيقدّم كورسات عالمية في البرمجة والتصميم والتسويق واللغات، مع مدرّبين خبراء وشهادات معتمدة بعد كل كورس</p>
+                
+                <span class="button">تصفّح الكورسات</span>
+                <span class="button2">اعرف أكتر</span>
+                <p class="student">1200+ طلاب بدأوا معنا</p>
 
-                <span>1200ج</span>
-                <span>12 أسبوع</span>
 
-                <a href="h">التفاصيل</a>
-            </article>
+                <div class="stats">
+                    <div class="state-item">
+                        <h3>1200+</h3>
+                        <p>طالب مسجل</p>
+                    </div>
+                    
+                    <div class="state-item">
+                        <h3>24</h3>
+                        <p>كورس متاح</p>
 
-            <article>
-                <h3>تصميم UI/UX</h3>
-                <p>من أول الـwireframe لحد الـprototype باستخدام Figma</p>
+                    </div>
+                    
+                    <div class="state-item">
+                        <h3>18</h3>
 
-                <span>900ج</span>
-                <span>8 أسابيع</span>
+                        <p>مدرب خبير</p>
+                    </div>
+                    
+                    <div class="state-item">
+                        <h3>96%</h3>
 
-                <a href="i">التفاصيل</a>
-            </article>
+                        <p>نسبة الرضا</p>
+                    </div>
+                </div>
 
-            <article>
-                <h3>التسويق الرقمي</h3>
-                <p>استراتيجيات السوشيال ميديا و الإعلانات الممولة و ال SEO</p>
 
-                <span>1000ج</span>
-                <span>10 أسابيع</span>
-            
-                <a href="j">التفاصيل</a>
-            </article>
+            </div>
+        
+        </section>
+
+        <section class="courses-section">
+   
+    <div class="courses-header">
+        <span class="courses-tag">الكورسَات</span>
+        <h2>اختر المجال اللي يناسبك</h2>
+        <p>كورسات عملية 100% بمشاريع حقيقية وشهادة معتمدة في نهاية كل كورس.</p>
+    </div>
+
+    
+    <div class="courses-grid">
+        
+        
+        <div class="course-card">
+            <div class="course-top">
+                <span class="course-icon">💻</span>
+            </div>
+            <h3>تطوير الويب</h3>
+            <p>اتعلم HTML و CSS و JavaScript وابني مواقع كاملة من الصفر.</p>
+            <div class="course-footer">
+                <span class="price">1200 ج</span>
+                <span class="duration">⏳ 12 أسبوع</span>
+            </div>
+            <a href="#" class="btn-details">التفاصيل</a>
+        </div>
+
+       
+        <div class="course-card">
+            <div class="course-top">
+                <span class="course-icon">🎨</span>
+            </div>
+            <h3>تصميم UI / UX</h3>
+            <p>من أول الـ Wireframe لحد الـ Prototype باستخدام Figma.</p>
+            <div class="course-footer">
+                <span class="price">900 ج</span>
+                <span class="duration">⏳ 8 أسابيع</span>
+            </div>
+            <a href="#" class="btn-details">التفاصيل</a>
+        </div>
+
+        
+        <div class="course-card">
+            <div class="course-top">
+                <span class="course-icon">📈</span>
+            </div>
+            <h3>التسويق الرقمي</h3>
+            <p>استراتيجيات السوشيال ميديا والإعلانات الممولة وSEO.</p>
+            <div class="course-footer">
+                <span class="price">1000 ج</span>
+                <span class="duration">⏳ 10 أسابيع</span>
+            </div>
+            <a href="#" class="btn-details">التفاصيل</a>
+        </div>
+
+        
+        <div class="course-card">
+            <div class="course-top">
+                <span class="course-icon">🗣️</span>
+            </div>
             <h3>اللغة الإنجليزية</h3>
+            <p>محادثة وقواعد من المستوى المبتدئ لحد المتقدم مع مدرب أجنبي.</p>
+            <div class="course-footer">
+                <span class="price">800 ج</span>
+                <span class="duration">⏳ 16 أسبوع</span>
+            </div>
+            <a href="#" class="btn-details">التفاصيل</a>
+        </div>
+
+        
+        <div class="course-card">
+            <div class="course-top">
+                <span class="course-icon">📊</span>
+            </div>
             <h3>تحليل البيانات</h3>
+            <p>تحليل البيانات وبناء التقارير وبناء SQL و Python و Excel.</p>
+            <div class="course-footer">
+                <span class="price">1500 ج</span>
+                <span class="duration">⏳ 14 أسبوع</span>
+            </div>
+            <a href="#" class="btn-details">التفاصيل</a>
+        </div>
+
+        
+        <div class="course-card">
+            <div class="course-top">
+                <span class="course-icon">📱</span>
+            </div>
             <h3>تطبيقات الموبايل</h3>
+            <p>ابني تطبيق كامل بـ Flutter واشتغل على iOS و Android.</p>
+            <div class="course-footer">
+                <span class="price">1400 ج</span>
+                <span class="duration">⏳ 12 أسبوع</span>
+            </div>
+            <a href="#" class="btn-details">التفاصيل</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 1. "Warum Masar?" Sektion -->
+<section class="why-us-section">
+    <div class="why-header">
+        <span class="why-tag">ليه مسار</span>
+        <h2>إيه اللي بيميّز مسار؟</h2>
+        <p>بنركّز على التطبيق العملي مش بس النظري.</p>
+    </div>
+
+    <div class="why-grid">
+        <!-- Karte 1: Zertifikat (rechts) -->
+        <div class="why-card">
+            <div class="why-icon">📜</div>
+            <h3>شهادة معتمدة</h3>
+            <p>شهادة معتمدة بتساعدك في سِرتك الذاتية وتقديمك للشغل.</p>
+        </div>
+
+        <!-- Karte 2: Experten (Mitte) -->
+        <div class="why-card">
+            <div class="why-icon">👨‍🏫</div>
+            <h3>مدرّبين خبراء</h3>
+            <p>كل مدرب عنده خبرة سنوات في السوق مش بس في التدريس.</p>
+        </div>
+
+        <!-- Karte 3: Praxis (links) -->
+        <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>محتوى عملي</h3>
+            <p>مشاريع حقيقية من أول أسبوع وبورتفوليو جاهز في الآخر.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Der violette Banner unten -->
+<section class="cta-banner">
+    <h2>جاهز تبدأ رحلتك؟</h2>
+    <p>احجز مكانك في الترم الجديد — الأماكن محدودة.</p>
+    <div class="cta-buttons">
+        <a href="#" class="btn-white">سجل الآن مجاناً</a>
+        <a href="#" class="btn-outline">اتصل بينا</a>
+    </div>
+</section>
+
             
             
-        </Section>
-        <h2>ليه مسار؟</h2>
+    <footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Logo and Description -->
+        <div class="footer-about">
+            <h3>مسار</h3>
+            <p>
+                مركز تعليم يقدم كورسات عملية في مجالات مختلفة،
+                هدفنا إنك تتعلم حاجة تفيدك في شغلك.
+            </p>
+        </div>
+
+        <!-- Courses -->
+        <div class="footer-section">
+            <h3>الكورسات</h3>
+            <a href="#">تطوير الويب</a>
+            <a href="#">تصميم UI/UX</a>
+            <a href="#">التسويق الرقمي</a>
+            <a href="#">تحليل البيانات</a>
+        </div>
+
+        <!-- Center -->
+        <div class="footer-section">
+            <h3>المركز</h3>
+            <a href="#">عن مسار</a>
+            <a href="#">المدربين</a>
+            <a href="#">الأسئلة الشائعة</a>
+            <a href="#">الوظائف</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-section">
+            <h3>تواصل</h3>
+            <a href="tel:01000000000">📞 0100 000 0000</a>
+            <a href="mailto:hello@masar.tst">✉ hello@masar.tst</a>
+            <a href="#">📍 القاهرة، مصر</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 مركز مسار. جميع الحقوق محفوظة</p>
+    </div>
+
+</footer>
+
 
 
 
