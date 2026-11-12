@@ -11,6 +11,103 @@
 
 <style>
 
+    /* --- Handy-Ansicht (für Bildschirme kleiner als 768px) --- */
+@media (max-width: 768px) {
+
+    /* 1. Header anpassen */
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    /* 2. Hero-Bereich (Bild und Text untereinander) */
+    .hero {
+        flex-direction: column-reverse; /* Text kommt auf dem Handy zuerst, Bild darunter */
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 30px; /* Kleinere Überschrift fürs Handy */
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Buttons untereinander statt nebeneinander */
+        width: 100%;
+    }
+
+    .students-info {
+        justify-content: center;
+    }
+
+    .card-illustration {
+        width: 260px;
+        height: 260px;
+    }
+
+    /* 3. Statistik-Zahlen in ein 2x2 Raster statt 4 nebeneinander */
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 30px 20px;
+    }
+
+    /* 4. Kurs-Karten & "Warum Masar"-Karten (1 Spalte untereinander) */
+    .courses-section, .why-us-section {
+        padding: 40px 20px;
+    }
+
+    .courses-grid, .why-grid {
+        grid-template-columns: 1fr; /* Statt 3 Spalten nur noch 1 Spalte */
+    }
+
+    /* 5. Lila Banner unten */
+    .cta-banner {
+        margin: 20px;
+        padding: 40px 20px;
+    }
+
+    .cta-banner h2 {
+        font-size: 28px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    /* 6. Footer (1 Spalte untereinander) */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
     .header{
         display: flex;
         justify-content: space-between;
@@ -36,12 +133,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: white;
-    padding: 30px;
-    border-radius: 20px;
-    margin-top: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    padding: 50px 40px;
     direction: rtl;
+    background-color: #FFFFFF;
 }
 
 .stat-item {
@@ -49,15 +143,19 @@
 }
 
 .stat-item h3 {
-    font-size: 32px;
-    color: #4F46E5; 
-    margin-bottom: 5px;
+    font-size: 36px;
+    font-weight: 800;
+    color: #4F46E5;
+    margin: 0 0 8px 0;
 }
 
 .stat-item p {
     color: #6B7280;
-    font-size: 16px;
+    font-size: 15px;
     margin: 0;
+}
+.highlight {
+    color: #4F46E5;
 }
 
 .hero {
@@ -79,13 +177,56 @@
 }
 
 .card-illustration {
-    width: 320px;
-    height: 320px;
-    background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
-    border-radius: 24px;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #4F6AF5 0%, #8E44EC 100%);
+    border-radius: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.hat-box {
+    width: 170px;
+    height: 170px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 95px;
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.25));
+}
+
+.students-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    color: #6B7280;
+    font-size: 15px;
+}
+
+.students-info strong {
+    color: #111827;
+}
+
+.avatars {
+    display: flex;
+    direction: ltr;
+}
+
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #EEF2FF;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-left: -10px;
 }
 
 
@@ -116,7 +257,7 @@
 .courses-section {
     padding: 60px 40px;
     direction: rtl;
-    background-color: #FAFAFA;
+    
 }
 
 .courses-header {
@@ -155,7 +296,7 @@
 
 
 .course-card {
-    background: lightblue;
+    background: white;
     padding: 30px;
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
@@ -239,7 +380,7 @@
 .why-us-section {
     padding: 60px 40px;
     direction: rtl;
-    background-color: #FFFFFF;
+   background-color: #FAFAFA;
 }
 
 .why-header {
@@ -276,7 +417,7 @@
 }
 
 .why-card {
-    background: lightcyan;
+    background: white;
     border: 1px solid #F3F4F6;
     padding: 40px 30px;
     border-radius: 24px;
@@ -463,8 +604,8 @@ footer {
     <div class="rating-badge">⭐ 4.9 تقييم</div>
     
     
-    <div class="card-illustration">
-        <img src="dein-bild.png" alt="Education Icon">
+   <div class="card-illustration">
+        <div class="hat-box">🎓</div>
     </div>
 
     
@@ -473,42 +614,43 @@ footer {
     </div>
 </div>
             <div class="hero-content">
-
-                <h1>مسار التعلم بيبدأ هنا</h1>
+                <h1>
+    اتعلم مهارة جديدة <span class="highlight">وابدأ</span><br>
+    <span class="highlight">رحلتك</span> من النهاردة
+</h1>
                 <p>مركز مسار بيقدّم كورسات عالمية في البرمجة والتصميم والتسويق واللغات، مع مدرّبين خبراء وشهادات معتمدة بعد كل كورس</p>
                 
                 <span class="button">تصفّح الكورسات</span>
                 <span class="button2">اعرف أكتر</span>
-                <p class="student">1200+ طلاب بدأوا معنا</p>
+                <div class="students-info">
+    <div class="avatars">
+        <span class="avatar-circle">👩</span>
+        <span class="avatar-circle">👨</span>
+        <span class="avatar-circle">🧔</span>
+    </div>
+    <p><strong>+1200</strong> طالب بدأوا معنا</p>
+</div>
+            
 
 
                 <div class="stats">
-                    <div class="state-item">
-                        <h3>1200+</h3>
-                        <p>طالب مسجل</p>
-                    </div>
-                    
-                    <div class="state-item">
-                        <h3>24</h3>
-                        <p>كورس متاح</p>
-
-                    </div>
-                    
-                    <div class="state-item">
-                        <h3>18</h3>
-
-                        <p>مدرب خبير</p>
-                    </div>
-                    
-                    <div class="state-item">
-                        <h3>96%</h3>
-
-                        <p>نسبة الرضا</p>
-                    </div>
-                </div>
-
-
-            </div>
+    <div class="stat-item">
+        <h3>96%</h3>
+        <p>نسبة الرضا</p>
+    </div>
+    <div class="stat-item">
+        <h3>18</h3>
+        <p>مدرّب خبير</p>
+    </div>
+    <div class="stat-item">
+        <h3>24</h3>
+        <p>كورس متاح</p>
+    </div>
+    <div class="stat-item">
+        <h3>+1200</h3>
+        <p>طالب مسجّل</p>
+    </div>
+</div>
         
         </section>
 
